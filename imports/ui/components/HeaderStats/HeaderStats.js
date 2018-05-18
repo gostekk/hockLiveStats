@@ -10,23 +10,27 @@ const HeaderStats = ({ game, game_id }) => (
           <button className="btn btn-outline-dark">Copy share id</button>
     </CopyToClipboard>
     </div>
-    <div className="col-md-6">
-      <div className="col-md-6">
-        {game.name}
-      </div>
-      <div className="col-md-6">
-        Goals: {game.goals}
-        Shots: {game.shots}
+    <div className="col-md-6 text-center">
+      <div className="row">
+        <div className="col-sm-6">
+          {game.name}
+        </div>
+        <div className="col-sm-6">
+          Goals: {game.goals}
+          Shots: {game.shots}
+        </div>
       </div>
     </div>
 
-    <div className="col-md-6">
-      <div className="col-md-6">
-        Opponent
-      </div>
-      <div className="col-md-6">
-        Goals: {game.goalsAgainst}
-        Shots: {game.shotsAgainst}
+    <div className="col-md-6 text-center">
+      <div className="row">
+        <div className="col-sm-6">
+          Opponent
+        </div>
+        <div className="col-sm-6">
+          Goals: {game.goalsAgainst}
+          Shots: {game.shotsAgainst}
+        </div>
       </div>
     </div>
   </div>
