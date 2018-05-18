@@ -20,6 +20,8 @@ Meteor.methods({
       archive: false,
       goals: 0,
       shots: 0,
+      goalsAgainst: 0,
+      shotsAgainst: 0,
       goalkeeper: {
         name: "",
         shotsOn: 0

@@ -3,16 +3,21 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
 
+import Header from '../../components/Header/Header';
+import Goalkeeper from '../../components/Goalkeeper/Goalkeeper';
+import Formation from '../../components/Formation/Formation';
+
+// Load Colletion
 import { Game } from "../../../api/Game/game";
 
-const GameOverview = ({ loading, game, game_id, match }) => {
+const GameOverview = ({ loading, game, game_id }) => {
   if (!loading) {
     if (game) {
-      console.log(game);
       return (
-        <div>
-          <h1>{game_id}</h1>
-          <p>{game.name}</p>
+        <div className="container">
+          <Header game={game} game_id={game_id} />
+          <Goalkeeper goalkeeper={game.goalkeeper} game_id={game_id} />
+          <Formation numerOf="1" formation={game.formation1} game_id={game_id} />
         </div>
       );
     } else {
