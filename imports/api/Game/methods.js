@@ -25,52 +25,13 @@ Meteor.methods({
       goalkeeper: {
         name: "",
         shotsOn: 0
-      },
-      formation1: {
-        LW: {
-          name: "",
-          shots: 0,
-          goals: 0,
-          assists: 0,
-          penaltyMinutes: 0,
-          shirtNumber: ""
-        },
-        C: {
-          name: "",
-          shots: 0,
-          goals: 0,
-          assists: 0,
-          penaltyMinutes: 0,
-          shirtNumber: ""
-        },
-        RW: {
-          name: "",
-          shots: 0,
-          goals: 0,
-          assists: 0,
-          penaltyMinutes: 0,
-          shirtNumber: ""
-        },
-        LD: {
-          name: "",
-          shots: 0,
-          goals: 0,
-          assists: 0,
-          penaltyMinutes: 0,
-          shirtNumber: ""
-        },
-        RD: {
-          name: "",
-          shots: 0,
-          goals: 0,
-          assists: 0,
-          penaltyMinutes: 0,
-          shirtNumber: ""
-        }
       }
     };
     try {
-      return Game.insert({ createdAt: new Date(), ...newGame });
+      const game = Game.insert({ createdAt: new Date(), ...newGame });
+      const formation1 = Meteor.call('formation.insert', game, 1);
+      const formation2 = Meteor.call('formation.insert', game, 2);
+      return game;
     } catch (exception) {
       throw new Meteor.Error("500", exception);
     }
@@ -91,5 +52,5 @@ Meteor.methods({
     } catch (exception) {
       throw new Meteor.Error("500", exception);
     }
-  }
+  },
 });
