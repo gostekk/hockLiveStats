@@ -4,8 +4,8 @@ import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
 
 import Header from '../../components/Header/Header';
-import Formation from '../../components/Formation/Formation';
 import Formations from '../../components/Formations/Formations';
+import FormationGoalkeeper from "../../components/FormationGoalkeeper/FormationGoalkeeper";
 
 // Load Colletions
 import { Game } from "../../../api/Game/game";
@@ -16,7 +16,7 @@ const GameOverview = ({ loadingGame, game, game_id }) => {
       return (
         <div className="container">
           <Header game={game} game_id={game_id} />
-          <Formation formation={game.goalkeeper} game_id={game_id} />
+          <FormationGoalkeeper player={game.goalkeeper} game_id={game_id} />
           <Formations game_id={game_id} />
         </div>
       );
