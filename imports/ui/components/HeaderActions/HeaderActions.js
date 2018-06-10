@@ -7,19 +7,46 @@ const HeaderActions = ({ game_id }) => (
     </div>
     <div className="col-md-6">
       <div className="btn-group" role="group" aria-label="Goals buttons">
-        <button type="button" className="btn btn-success">+</button>
+        <button type="button" className="btn btn-success" onClick={() => {
+          Meteor.call("opponent.goals", game_id, 1, (error, _id) => {
+            if (error) {
+              console.log(error.reason);
+            } else {
+              console.log('Success');
+            }
+          });
+        }}>+</button>
         <button type="button" disabled className="btn btn-dark">Goal</button>
-        <button type="button" className="btn btn-danger">-</button>
+        <button type="button" className="btn btn-danger" onClick={() => {
+          Meteor.call("opponent.goals", game_id, -1, (error, _id) => {
+            if (error) {
+              console.log(error.reason);
+            } else {
+              console.log('Success');
+            }
+          });
+        }}>-</button>
       </div>
       <div className="btn-group" role="group" aria-label="Shots buttons">
-        <button type="button" className="btn btn-success">+</button>
+        <button type="button" className="btn btn-success" onClick={() => {
+          Meteor.call("goalkeeper.shotsOn", game_id, 1, (error, _id) => {
+            if (error) {
+              console.log(error.reason);
+            } else {
+              console.log('Success');
+            }
+          });
+        }}>+</button>
         <button type="button" disabled className="btn btn-dark">Shot</button>
-        <button type="button" className="btn btn-danger">-</button>
-      </div>
-      <div className="btn-group" role="group" aria-label="PMs buttons">
-        <button type="button" className="btn btn-success">+</button>
-        <button type="button" disabled className="btn btn-dark">PM</button>
-        <button type="button" className="btn btn-danger">-</button>
+        <button type="button" className="btn btn-danger" onClick={() => {
+          Meteor.call("goalkeeper.shotsOn", game_id, -1, (error, _id) => {
+            if (error) {
+              console.log(error.reason);
+            } else {
+              console.log('Success');
+            }
+          });
+        }}>-</button>
       </div>
     </div>
   </div>

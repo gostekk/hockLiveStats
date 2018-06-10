@@ -53,4 +53,61 @@ Meteor.methods({
       throw new Meteor.Error("500", exception);
     }
   },
+
+  "goalkeeper.shotsOn": function goalkeeperShotOn(game_id, shotsOnValue) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      shotsOnValue: {
+        type: Number,
+        allowedValues: [ 1, -1],
+        required: true
+      }
+    }).validate({
+      game_id, shotsOnValue
+    });
+
+    try {
+      return Game.update(
+        { _id: game_id },
+      { $inc: { 
+        'goalkeeper.shotsOn': shotsOnValue,
+        shotsAgainst: shotsOnValue
+      }});
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
+
+  "opponent.goals": function opponentGoal(game_id, opponentGoalValue) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      opponentGoalValue: {
+        type: Number,
+        allowedValues: [ 1, -1],
+        required: true
+      }
+    }).validate({
+      game_id, opponentGoalValue
+    });
+
+    try {
+      return Game.update(
+        { _id: game_id },
+      { $inc: { 
+        goalsAgainst: opponentGoalValue,
+        shotsAgainst: opponentGoalValue,
+        'goalkeeper.shotsOn': opponentGoalValue
+      }});
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
 });

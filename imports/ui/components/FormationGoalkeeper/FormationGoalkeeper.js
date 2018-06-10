@@ -20,8 +20,24 @@ const FormationGoalkeeper = ({ player, game_id }) => (
             </div>
             <div className="col-md-4">
               <div className="btn-group btn-group-sm mr-1" role="group" aria-label="Shots buttons">
-                <button type="button" className="btn btn-success">Sho</button>
-                <button type="button" className="btn btn-danger">tOn</button>
+                <button type="button" className="btn btn-success" onClick={() => {
+                  Meteor.call("goalkeeper.shotsOn", game_id, 1, (error, _id) => {
+                    if (error) {
+                      console.log(error.reason);
+                    } else {
+                      console.log('Success');
+                    }
+                  });
+                }}>Sho</button>
+                <button type="button" className="btn btn-danger" onClick={() => {
+                  Meteor.call("goalkeeper.shotsOn", game_id, -1, (error, _id) => {
+                    if (error) {
+                      console.log(error.reason);
+                    } else {
+                      console.log('Success');
+                    }
+                  });
+                }}>tOn</button>
               </div>
             </div>
           </div>
