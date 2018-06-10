@@ -32,7 +32,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
           });
         }} >Sh</button>
         <button type="button" className="btn btn-danger" onClick={() => {
-          if (player.shots > 0) {
+          if (player.shots > 0 && player.goals < player.shots) {
           Meteor.call("player.shot", player._id, formation_id, game_id, player.position, -1, (error, _id) => {
             if (error) {
               console.log(error.reason);
@@ -56,17 +56,17 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
           });
         }} >Go</button>
         <button type="button" className="btn btn-danger" onClick={() => {
-          if (player.goals > 0) {
-          Meteor.call("player.goal", player._id, formation_id, game_id, player.position, -1, (error, _id) => {
-            if (error) {
-              console.log(error.reason);
-            } else {
-              console.log('Success');
-            }
-          });
-        } else {
-          console.log('Goals can\'t be below zero');
-        }
+          if (player.goals > 0 && player.goals <= player.shots) {
+            Meteor.call("player.goal", player._id, formation_id, game_id, player.position, -1, (error, _id) => {
+              if (error) {
+                console.log(error.reason);
+              } else {
+                console.log('Success');
+              }
+            });
+          } else {
+            console.log('Goals can\'t be below zero');
+          }
         }} >al</button>
       </div>
       <div className="btn-group btn-group-sm mr-1" role="group" aria-label="Assists buttons">
