@@ -19,6 +19,29 @@ const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, for
                 Formation {formationOrder}
               </div>
               <div className="card-body">
+                <div className="row pt-2 align-items-center">
+                  <div className="col-md-1">
+                    Pos
+                  </div>
+                  <div className="col-md-2">
+                    Name
+                  </div>
+                  <div className="col-md-1 text-center">
+                    SOG
+                  </div>
+                  <div className="col-md-1 text-center">
+                    G
+                  </div>
+                  <div className="col-md-1 text-center">
+                    A
+                  </div>
+                  <div className="col-md-1 text-center">
+                    PiM
+                  </div>
+                  <div className="col-md-5 text-center">
+                    Actions
+                  </div>
+                </div>
                 { formationPlayers.map((player) => (
                   <FormationPlayer key={player._id} player={player} formation_id={formation_id} />
                 ))}

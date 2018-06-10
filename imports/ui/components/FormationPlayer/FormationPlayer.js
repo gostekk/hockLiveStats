@@ -8,19 +8,19 @@ const FormationPlayer = ({ player, formation_id }) => (
     <div className="col-md-2">
       { player.name }
     </div>
-    <div className="col-md-1">
+    <div className="col-md-1 text-center">
       { player.shots}
     </div>
-    <div className="col-md-1">
+    <div className="col-md-1 text-center">
       { player.goals}
     </div>
-    <div className="col-md-1">
+    <div className="col-md-1 text-center">
       { player.assists}
     </div>
-    <div className="col-md-1">
+    <div className="col-md-1 text-center">
       { player.penaltyMinutes}
     </div>
-    <div className="col-md-4">
+    <div className="col-md-5 text-center">
       <div className="btn-group btn-group-sm mr-1" role="group" aria-label="Shots buttons">
         <button type="button" className="btn btn-success" onClick={() => {
           Meteor.call("player.shot", player._id, formation_id, player.position, 1, (error, _id) => {

@@ -14,7 +14,7 @@ const GameOverview = ({ loadingGame, game, game_id }) => {
   if (!loadingGame) {
     if (game) {
       return (
-        <div className="container">
+        <div className="container-fluid">
           <Header game={game} game_id={game_id} />
           <FormationGoalkeeper player={game.goalkeeper} game_id={game_id} />
           <Formations game_id={game_id} />
