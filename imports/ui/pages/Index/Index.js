@@ -9,11 +9,8 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        Index
         <br />
         <NewGame {...this.props} />
-        <br />
-        <Link to="/game/id">To old game</Link>
         <br />
       </div>
     );

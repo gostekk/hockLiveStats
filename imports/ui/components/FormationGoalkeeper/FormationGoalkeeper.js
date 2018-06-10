@@ -3,7 +3,7 @@ import React from 'react';
 const FormationGoalkeeper = ({ player, game_id }) => (
   <div className="row">
     <div className="col-md-12">  
-      <div className="card  bg-light mb-3">
+      <div className="card bg-light mb-3">
         <div className="card-header">
           Goalkeeper
         </div>
