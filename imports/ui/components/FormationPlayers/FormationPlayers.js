@@ -8,7 +8,7 @@ import FormationPlayer from '../FormationPlayer/FormationPlayer';
 // Load Colletions
 import { Player } from "../../../api/Player/player";
 
-const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, formation_id }) => {
+const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, formation_id, game_id }) => {
   if (!loadingPlayer) {
     if (formationPlayers) {
       return (
@@ -43,7 +43,7 @@ const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, for
                   </div>
                 </div>
                 { formationPlayers.map((player) => (
-                  <FormationPlayer key={player._id} player={player} formation_id={formation_id} />
+                  <FormationPlayer key={player._id} player={player} formation_id={formation_id} game_id={game_id} />
                 ))}
               </div>
             </div>

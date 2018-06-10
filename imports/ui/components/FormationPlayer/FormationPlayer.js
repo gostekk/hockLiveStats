@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormationPlayer = ({ player, formation_id }) => (
+const FormationPlayer = ({ player, formation_id, game_id }) => (
   <div className="row pt-2 align-items-center">
     <div className="col-md-1">
       { player.position }
@@ -23,7 +23,7 @@ const FormationPlayer = ({ player, formation_id }) => (
     <div className="col-md-5 text-center">
       <div className="btn-group btn-group-sm mr-1" role="group" aria-label="Shots buttons">
         <button type="button" className="btn btn-success" onClick={() => {
-          Meteor.call("player.shot", player._id, formation_id, player.position, 1, (error, _id) => {
+          Meteor.call("player.shot", player._id, formation_id, game_id, player.position, 1, (error, _id) => {
             if (error) {
               console.log(error.reason);
             } else {
@@ -33,7 +33,7 @@ const FormationPlayer = ({ player, formation_id }) => (
         }} >Sh</button>
         <button type="button" className="btn btn-danger" onClick={() => {
           if (player.shots > 0) {
-          Meteor.call("player.shot", player._id, formation_id, player.position, -1, (error, _id) => {
+          Meteor.call("player.shot", player._id, formation_id, game_id, player.position, -1, (error, _id) => {
             if (error) {
               console.log(error.reason);
             } else {
@@ -47,7 +47,7 @@ const FormationPlayer = ({ player, formation_id }) => (
       </div>
       <div className="btn-group btn-group-sm mr-1" role="group" aria-label="Goals buttons">
         <button type="button" className="btn btn-success" onClick={() => {
-          Meteor.call("player.goal", player._id, formation_id, player.position, 1, (error, _id) => {
+          Meteor.call("player.goal", player._id, formation_id, game_id, player.position, 1, (error, _id) => {
             if (error) {
               console.log(error.reason);
             } else {
@@ -57,7 +57,7 @@ const FormationPlayer = ({ player, formation_id }) => (
         }} >Go</button>
         <button type="button" className="btn btn-danger" onClick={() => {
           if (player.goals > 0) {
-          Meteor.call("player.goal", player._id, formation_id, player.position, -1, (error, _id) => {
+          Meteor.call("player.goal", player._id, formation_id, game_id, player.position, -1, (error, _id) => {
             if (error) {
               console.log(error.reason);
             } else {

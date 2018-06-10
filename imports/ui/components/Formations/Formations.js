@@ -14,7 +14,7 @@ const Formations = ({ loadingFormations, formations, game_id }) => {
       return (
         <div>
           { formations.map((formation) => (
-            <FormationPlayers key={formation._id} formation_id={formation._id} formationOrder={formation.order} />
+            <FormationPlayers key={formation._id} formation_id={formation._id} formationOrder={formation.order} game_id={game_id} />
           ))}
         </div>
       );

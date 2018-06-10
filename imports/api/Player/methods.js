@@ -60,7 +60,7 @@ Meteor.methods({
     }
   },
 
-  "player.shot": function playerShot(player_id, formation_id, position, shotValue) {
+  "player.shot": function playerShot(player_id, formation_id, game_id, position, shotValue) {
     new SimpleSchema({
       formation_id: {
         type: String,
@@ -82,6 +82,7 @@ Meteor.methods({
     });
 
     try {
+      Meteor.call("game.shots", game_id, shotValue);
       return Player.update(
         { _id: player_id, formation_id, position },
       { $inc: { shots: shotValue}});
@@ -90,7 +91,7 @@ Meteor.methods({
     }
   },
 
-  "player.goal": function playerShot(player_id, formation_id, position, goalValue) {
+  "player.goal": function playerShot(player_id, formation_id, game_id, position, goalValue) {
     new SimpleSchema({
       formation_id: {
         type: String,
@@ -112,9 +113,13 @@ Meteor.methods({
     });
 
     try {
+      Meteor.call("game.goals", game_id, goalValue);
       return Player.update(
         { _id: player_id, formation_id, position },
-      { $inc: { goals: goalValue}});
+      { $inc: { 
+        goals: goalValue,
+        shots: goalValue
+      }});
     } catch (exception) {
       throw new Meteor.Error("500", exception);
     }

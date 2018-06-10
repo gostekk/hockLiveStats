@@ -111,6 +111,61 @@ Meteor.methods({
     }
   },
 
+  "game.goals": function gameGoals(game_id, goalsValue) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      goalsValue: {
+        type: Number,
+        allowedValues: [ 1, -1],
+        required: true
+      }
+    }).validate({
+      game_id, goalsValue
+    });
+
+    try {
+      return Game.update(
+        { _id: game_id },
+      { $inc: { 
+        goals: goalsValue,
+        shots: goalsValue
+      }});
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
+
+  "game.shots": function gameGoals(game_id, shotsValue) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      shotsValue: {
+        type: Number,
+        allowedValues: [ 1, -1],
+        required: true
+      }
+    }).validate({
+      game_id, shotsValue
+    });
+
+    try {
+      return Game.update(
+        { _id: game_id },
+      { $inc: { 
+        shots: shotsValue,
+      }});
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
+
   "game.reset": function gameReset(game_id) {
     new SimpleSchema({
       game_id: {
