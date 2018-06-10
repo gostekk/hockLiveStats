@@ -110,4 +110,33 @@ Meteor.methods({
       throw new Meteor.Error("500", exception);
     }
   },
+
+  "game.reset": function gameReset(game_id) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      }
+    }).validate({
+      game_id
+    });
+
+    try {
+      Meteor.call('formations.reset', game_id);
+      return Game.update(
+        { _id: game_id },
+        { $set: { 
+          goals: 0,
+          shots: 0,
+          goalsAgainst: 0,
+          shotsAgainst: 0,
+          'goalkeeper.name': "",
+          'goalkeeper.shotsOn': 0
+        }}
+      );
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
 });

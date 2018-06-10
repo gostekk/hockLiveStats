@@ -3,7 +3,15 @@ import React from 'react';
 const HeaderActions = ({ game_id }) => (
   <div className="row">
     <div className="col-md-6">
-      <button type="button" className="btn btn-dark pull-right">Reset</button>
+      <button type="button" className="btn btn-dark pull-right" onClick={() => {
+          Meteor.call("game.reset", game_id, (error, _id) => {
+            if (error) {
+              console.log(error.reason);
+            } else {
+              console.log('Success');
+            }
+          });
+        }}>Reset</button>
     </div>
     <div className="col-md-6">
       <div className="btn-group" role="group" aria-label="Goals buttons">

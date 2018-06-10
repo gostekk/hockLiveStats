@@ -54,4 +54,26 @@ Meteor.methods({
       throw new Meteor.Error("500", exception);
     }
   },
+
+  "formations.reset": function formationsReset(game_id) {
+    new SimpleSchema({
+      game_id: {
+        type: String,
+        min: 1,
+        required: true
+      }
+    }).validate({
+      game_id
+    });
+
+    try {
+      return Formation.find(
+        { game_id: game_id }
+      ).fetch().forEach(formation => (
+        Meteor.call('players.reset', formation._id)
+      ));
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
 });

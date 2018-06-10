@@ -179,4 +179,34 @@ Meteor.methods({
       throw new Meteor.Error("500", exception);
     }
   },
+
+  "players.reset": function playerReset(formation_id) {
+    new SimpleSchema({
+      formation_id: {
+        type: String,
+        min: 1,
+        required: true
+      }
+    }).validate({
+      formation_id
+    });
+
+    try {
+      return Player.update(
+        { formation_id: formation_id },
+        { $set: { 
+          shots: 0,
+          goals: 0,
+          assists: 0,
+          penaltyMinutes: 0,
+          shirtNumber: ""
+        }},
+        {
+          multi: true
+        }
+      );
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  }
 });
