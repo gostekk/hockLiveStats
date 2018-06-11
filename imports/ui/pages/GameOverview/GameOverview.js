@@ -16,7 +16,7 @@ const GameOverview = ({ loadingGame, game, game_id }) => {
       return (
         <div className="container-fluid">
           <Header game={game} game_id={game_id} />
-          <FormationGoalkeeper player={game.goalkeeper} game_id={game_id} />
+          <FormationGoalkeeper player={game.goalkeeper} game_id={game_id} game={game} />
           <Formations game_id={game_id} />
         </div>
       );
