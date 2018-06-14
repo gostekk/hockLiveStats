@@ -1,4 +1,7 @@
 import React from 'react';
+import { Session } from 'meteor/session'
+
+import FormationPlayerEdit from '../FormationPlayerEdit/FormationPlayerEdit';
 
 const FormationPlayer = ({ player, formation_id, game_id }) => (
   <div className="row pt-2 align-items-center">
@@ -6,7 +9,11 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
       { player.position }
     </div>
     <div className="col-md-2">
-      { player.name }
+      { !Session.equals('playerEditId', player._id)
+      ? <span className="badge badge-pill badge-primary" onClick={() => {
+          Session.set('playerEditId', player._id);
+      }}>{ player.name }</span>
+      : <FormationPlayerEdit player_id={player._id} formation_id={formation_id} /> }
     </div>
     <div className="col-md-1 text-center">
       { player.shots}

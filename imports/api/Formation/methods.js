@@ -27,8 +27,8 @@ Meteor.methods({
     try {
       const formation = Formation.insert({ createdAt: new Date(), ...newFormation });
       const lw = Meteor.call('player.insert', formation, "LW");
-      const rw = Meteor.call('player.insert', formation, "RW");
       const c = Meteor.call('player.insert', formation, "C");
+      const rw = Meteor.call('player.insert', formation, "RW");
       const ld = Meteor.call('player.insert', formation, "LD");
       const rd = Meteor.call('player.insert', formation, "RD");
       return formation;

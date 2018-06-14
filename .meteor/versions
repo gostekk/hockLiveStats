@@ -51,10 +51,12 @@ ordered-dict@1.1.0
 promise@0.11.1
 random@1.1.0
 react-meteor-data@0.2.16
+reactive-dict@1.2.0
 reactive-var@1.0.11
 reload@1.2.0
 retry@1.1.0
 routepolicy@1.0.13
+session@1.1.7
 shell-server@0.3.1
 socket-stream-client@0.2.1
 spacebars-compiler@1.1.3

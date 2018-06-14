@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
+import { Session } from 'meteor/session'
 import PropTypes from "prop-types";
 
 import FormationPlayer from '../FormationPlayer/FormationPlayer';
@@ -43,7 +44,12 @@ const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, for
                   </div>
                 </div>
                 { formationPlayers.map((player) => (
-                  <FormationPlayer key={player._id} player={player} formation_id={formation_id} game_id={game_id} />
+                  <FormationPlayer 
+                    key={player._id} 
+                    player={player} 
+                    formation_id={formation_id} 
+                    game_id={game_id} 
+                  />
                 ))}
               </div>
             </div>
@@ -64,9 +70,11 @@ FormationPlayers.propTypes = {
 
 export default withTracker(({ formation_id }) => {
   const subscriptionPlayer = Meteor.subscribe("formationPlayers", formation_id);
+  const playerEditId = Session.get('playerEditId');
   return {
     loadingPlayer: !subscriptionPlayer.ready(),
     formation_id,
-    formationPlayers: Player.find({ formation_id }).fetch()
+    playerEditId,
+    formationPlayers: Player.find({ formation_id }).fetch(),
   };
 })(FormationPlayers);

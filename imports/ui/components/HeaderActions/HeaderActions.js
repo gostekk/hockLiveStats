@@ -1,4 +1,5 @@
 import React from 'react';
+import { Session } from 'meteor/session'
 
 const HeaderActions = ({ game, game_id }) => (
   <div className="row">
@@ -8,6 +9,7 @@ const HeaderActions = ({ game, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
+              Session.set('playerEditId', undefined);
               console.log('Success');
             }
           });

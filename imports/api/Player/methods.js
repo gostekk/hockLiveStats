@@ -60,6 +60,37 @@ Meteor.methods({
     }
   },
 
+  "player.editName": function playerEditName(player_id, formation_id, name) {
+    new SimpleSchema({
+      player_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      formation_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      name: {
+        type: String,
+        min: 4,
+        max: 40,
+        required: true
+      }
+    }).validate({
+      player_id, formation_id, name
+    });
+
+    try {
+      return Player.update(
+        { _id: player_id, formation_id },
+      { $set: { name: name}});
+    } catch (exception) {
+      throw new Meteor.Error("500", exception);
+    }
+  },
+
   "player.shot": function playerShot(player_id, formation_id, game_id, position, shotValue) {
     new SimpleSchema({
       formation_id: {
