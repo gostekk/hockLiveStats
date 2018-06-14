@@ -49,22 +49,20 @@ class FormationPlayerEdit extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         <form onSubmit={this.handleSubmit} noValidate>
-          <div className="input-group">
+	        <div className='form-row'>
             <input 
-              type="text"
-              className="form-control"
+              type='text' 
+              className='form-control col-md-12 col-lg-8' 
               name="name"
               ref={name => (this.name = name)}
               placeholder="Player name"
               value={this.state.name}
               onChange={this.handleNameChange}
             />
-              <div className="input-group-append">
-                <button className="btn btn-outline-success" type="submit">C</button>
-                <button className="btn btn-outline-danger" onClick={this.handleAbort}>X</button>
-              </div>
+            <button className='btn btn-outline-success col-md-6 col-lg-2' type="submit">&#x2713;</button>
+            <button className='btn btn-outline-danger col-md-6 col-lg-2' onClick={this.handleAbort}>&#x2717;</button>
           </div>
         </form>
       </div>
