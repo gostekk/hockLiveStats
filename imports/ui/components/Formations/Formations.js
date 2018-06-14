@@ -31,13 +31,15 @@ const Formations = ({ loadingFormations, formations, game_id }) => {
 };
 
 Formations.propTypes = {
-  formations: PropTypes.arrayOf(PropTypes.object)
+  loadingFormations: PropTypes.bool.isRequired,
+  formations: PropTypes.arrayOf(PropTypes.object),
+  game_id: PropTypes.string.isRequired
 };
 
 export default withTracker(({ game_id }) => {
   const subscriptionFormations = Meteor.subscribe("gameFormations", game_id);
   return {
-    loadingFormation: !subscriptionFormations.ready(),
+    loadingFormations: !subscriptionFormations.ready(),
     game_id,
     formations: Formation.find({ game_id }).fetch(),
   };

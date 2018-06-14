@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FormationGoalkeeper = ({ player, game_id, game }) => (
   <div className="row">
@@ -71,5 +72,11 @@ const FormationGoalkeeper = ({ player, game_id, game }) => (
     </div>
   </div>
 );
+
+FormationGoalkeeper.propTypes = {
+  player: PropTypes.object.isRequired,
+  game_id: PropTypes.string,
+  game: PropTypes.object.isRequired
+};
 
 export default FormationGoalkeeper;

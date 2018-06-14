@@ -65,7 +65,11 @@ const FormationPlayers = ({ loadingPlayer, formationPlayers, formationOrder, for
 };
 
 FormationPlayers.propTypes = {
-  formationPlayers: PropTypes.arrayOf(PropTypes.object)
+  loadingPlayer: PropTypes.bool.isRequired,
+  formationPlayers: PropTypes.arrayOf(PropTypes.object),
+  formationOrder: PropTypes.number.isRequired ,
+  formation_id: PropTypes.string.isRequired,
+  game_id: PropTypes.string.isRequired 
 };
 
 export default withTracker(({ formation_id }) => {

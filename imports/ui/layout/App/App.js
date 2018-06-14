@@ -5,8 +5,6 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import { Meteor } from "meteor/meteor";
-import PropTypes from "prop-types";
 
 // Pages
 import Index from "../../pages/Index/Index";

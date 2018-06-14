@@ -1,5 +1,6 @@
 import React from 'react';
 import { Session } from 'meteor/session'
+import PropTypes from 'prop-types';
 
 import FormationPlayerEdit from '../FormationPlayerEdit/FormationPlayerEdit';
 
@@ -127,5 +128,11 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
     </div>
   </div>
 )
+
+FormationPlayer.propTypes = {
+  player: PropTypes.object.isRequired,
+  formation_id: PropTypes.string.isRequired,
+  game_id: PropTypes.string.isRequired
+};
 
 export default FormationPlayer;

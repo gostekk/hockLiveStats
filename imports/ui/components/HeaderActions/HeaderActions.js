@@ -1,5 +1,6 @@
 import React from 'react';
 import { Session } from 'meteor/session'
+import PropTypes from 'prop-types';
 
 const HeaderActions = ({ game, game_id }) => (
   <div className="row">
@@ -69,5 +70,10 @@ const HeaderActions = ({ game, game_id }) => (
     </div>
   </div>
 );
+
+HeaderActions.propTypes = {
+  game: PropTypes.object.isRequired,
+  game_id: PropTypes.string.isRequired
+};
 
 export default HeaderActions;

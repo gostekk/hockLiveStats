@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import HeaderStats from '../HeaderStats/HeaderStats';
 import HeaderActions from '../HeaderActions/HeaderActions';
@@ -13,5 +14,10 @@ const Header = ({ game, game_id }) => (
     </div>
   </div>
 );
+
+Header.propTypes = {
+  game: PropTypes.object.isRequired,
+  game_id: PropTypes.string.isRequired
+};
 
 export default Header;

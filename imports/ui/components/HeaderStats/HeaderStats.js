@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const HeaderStats = ({ game, game_id }) => (
@@ -71,5 +72,10 @@ const HeaderStats = ({ game, game_id }) => (
     </div>
   </div>
 );
+
+HeaderStats.propTypes = {
+  game: PropTypes.object.isRequired,
+  game_id: PropTypes.string.isRequired
+};
 
 export default HeaderStats;

@@ -29,8 +29,9 @@ const GameOverview = ({ loadingGame, game, game_id }) => {
 };
 
 GameOverview.propTypes = {
+  loadingGame: PropTypes.bool.isRequired,
   game: PropTypes.object,
-  formations: PropTypes.arrayOf(PropTypes.object)
+  game_id: PropTypes.string.isRequired
 };
 
 export default withTracker(({ match }) => {

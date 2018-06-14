@@ -1,5 +1,6 @@
 import React from 'react'
 import { Session } from 'meteor/session';
+import PropTypes from 'prop-types';
 
 class FormationPlayerEdit extends React.Component {
   constructor (props) {
@@ -69,5 +70,10 @@ class FormationPlayerEdit extends React.Component {
     )
   }
 }
+
+FormationPlayerEdit.propTypes = {
+  player_id: PropTypes.string.isRequired,
+  formation_id: PropTypes.string.isRequired
+};
 
 export default FormationPlayerEdit;
