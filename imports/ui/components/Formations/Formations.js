@@ -1,7 +1,7 @@
 import React from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import { Session } from 'meteor/session'
+import { Session } from 'meteor/session';
 import PropTypes from "prop-types";
 
 import FormationPlayers from '../../components/FormationPlayers/FormationPlayers';
@@ -18,7 +18,12 @@ const Formations = ({ loadingFormations, formations, game_id }) => {
       return (
         <div>
           { formations.map((formation) => (
-            <FormationPlayers key={formation._id} formation_id={formation._id} formationOrder={formation.order} game_id={game_id} />
+            <FormationPlayers 
+              key={formation._id}
+              formation_id={formation._id}
+              formationOrder={formation.order}
+              game_id={game_id}
+            />
           ))}
         </div>
       );

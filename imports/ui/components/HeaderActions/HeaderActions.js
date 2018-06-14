@@ -11,7 +11,7 @@ const HeaderActions = ({ game, game_id }) => (
               console.log(error.reason);
             } else {
               Session.set('playerEditId', undefined);
-              console.log('Success');
+              console.log('Success: game reseted');
             }
           });
         }}>Reset</button>
@@ -23,7 +23,7 @@ const HeaderActions = ({ game, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed opponent goals amount');
             }
           });
         }}>+</button>
@@ -34,7 +34,7 @@ const HeaderActions = ({ game, game_id }) => (
               if (error) {
                 console.log(error.reason);
               } else {
-                console.log('Success');
+                console.log('Success: Changed opponent goals amount');
               }
             });
           } else {
@@ -48,7 +48,7 @@ const HeaderActions = ({ game, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed opponent shots amount');
             }
           });
         }}>+</button>
@@ -59,7 +59,7 @@ const HeaderActions = ({ game, game_id }) => (
               if (error) {
                 console.log(error.reason);
               } else {
-                console.log('Success');
+                console.log('Success: Changed opponent shots amount');
               }
             });
           } else {

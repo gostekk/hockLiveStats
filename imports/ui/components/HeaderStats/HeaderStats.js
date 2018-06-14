@@ -7,8 +7,8 @@ const HeaderStats = ({ game, game_id }) => (
     <div className="col-sm-12 mb-2 pull-right">
     {/* @TODO: Copy success info */}
     <CopyToClipboard text={game_id}
-          onCopy={() => console.log('Copied!')}>
-          <button className="btn btn-outline-dark">Copy share id</button>
+      onCopy={() => console.log('Copied!')}>
+      <button className="btn btn-outline-dark">Copy share id</button>
     </CopyToClipboard>
     </div>
     <div className="col-md-6 text-center">

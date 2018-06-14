@@ -35,7 +35,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed shots value of player');
             }
           });
         }} >Sh</button>
@@ -45,7 +45,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed shots value of player');
             }
           });
         } else {
@@ -59,7 +59,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed goals value of player');
             }
           });
         }} >Go</button>
@@ -69,7 +69,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
               if (error) {
                 console.log(error.reason);
               } else {
-                console.log('Success');
+                console.log('Success: Changed goals value of player');
               }
             });
           } else {
@@ -83,7 +83,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed assists value of player');
             }
           });
         }} >Ass</button>
@@ -93,7 +93,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed assists value of player');
             }
           });
         } else {
@@ -107,7 +107,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed panelty minutes value of player');
             }
           });
         }} >P</button>
@@ -117,7 +117,7 @@ const FormationPlayer = ({ player, formation_id, game_id }) => (
             if (error) {
               console.log(error.reason);
             } else {
-              console.log('Success');
+              console.log('Success: Changed panelty minutes value of player');
             }
           });
         } else {
