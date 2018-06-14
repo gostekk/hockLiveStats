@@ -93,7 +93,17 @@ Meteor.methods({
 
   "player.shot": function playerShot(player_id, formation_id, game_id, position, shotValue) {
     new SimpleSchema({
+      player_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
       formation_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      game_id: {
         type: String,
         min: 1,
         required: true
@@ -109,7 +119,7 @@ Meteor.methods({
         required: true
       }
     }).validate({
-      formation_id, position, shotValue
+      player_id, formation_id, game_id, position, shotValue
     });
 
     try {
@@ -124,7 +134,17 @@ Meteor.methods({
 
   "player.goal": function playerShot(player_id, formation_id, game_id, position, goalValue) {
     new SimpleSchema({
+      player_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
       formation_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
+      game_id: {
         type: String,
         min: 1,
         required: true
@@ -140,7 +160,7 @@ Meteor.methods({
         required: true
       }
     }).validate({
-      formation_id, position, goalValue
+      player_id, formation_id, game_id, position, goalValue
     });
 
     try {
@@ -158,6 +178,11 @@ Meteor.methods({
 
   "player.assist": function playerShot(player_id, formation_id, position, assistValue) {
     new SimpleSchema({
+      player_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
       formation_id: {
         type: String,
         min: 1,
@@ -174,7 +199,7 @@ Meteor.methods({
         required: true
       }
     }).validate({
-      formation_id, position, assistValue
+      player_id, formation_id, position, assistValue
     });
 
     try {
@@ -188,6 +213,11 @@ Meteor.methods({
 
   "player.pm": function playerShot(player_id, formation_id, position, pmValue) {
     new SimpleSchema({
+      player_id: {
+        type: String,
+        min: 1,
+        required: true
+      },
       formation_id: {
         type: String,
         min: 1,
@@ -204,7 +234,7 @@ Meteor.methods({
         required: true
       }
     }).validate({
-      formation_id, position, pmValue
+      player_id, formation_id, position, pmValue
     });
 
     try {

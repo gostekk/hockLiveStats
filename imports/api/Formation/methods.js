@@ -37,19 +37,19 @@ Meteor.methods({
     }
   },
 
-  "formation.remove": function formationRemove(_id) {
+  "formation.remove": function formationRemove(formation_id) {
     new SimpleSchema({
-      _id: {
+      formation_id: {
         type: String,
         min: 1
       }
     }).validate({
-      _id
+      formation_id
     });
 
     try {
       // TODO: Remove formation players
-      return Formation.remove(_id);
+      return Formation.remove({ _id: formation });
     } catch (exception) {
       throw new Meteor.Error("500", exception);
     }
