@@ -22,7 +22,7 @@ const FormationGoalkeeper = ({ player, game_id, game }) => (
               Shots
             </div>
             <div className="col-md-1 text-center">
-              Saves(%)
+              S(%)
             </div>
             <div className="col-md-5 text-center">
             </div>

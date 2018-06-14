@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const HeaderStats = ({ game, game_id }) => (
   <div className="row">
-    <div className="col-md-12 pull-right">
+    <div className="col-sm-12 mb-2 pull-right">
     {/* @TODO: Copy success info */}
     <CopyToClipboard text={game_id}
           onCopy={() => console.log('Copied!')}>
@@ -11,25 +11,61 @@ const HeaderStats = ({ game, game_id }) => (
     </CopyToClipboard>
     </div>
     <div className="col-md-6 text-center">
-      <div className="row">
-        <div className="col-sm-6">
+      <div className="card border-secondary">
+        <div className="card-header">
           {game.name}
         </div>
-        <div className="col-sm-6">
-          Goals: {game.goals}
-          Shots: {game.shots}
+      <div className="card-body row">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header">
+              Goals
+            </div>
+            <div className="card-body">
+              {game.goals}
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="card">
+              <div className="card-header">
+                Shots
+              </div>
+              <div className="card-body">
+                {game.shots}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div className="col-md-6 text-center">
-      <div className="row">
-        <div className="col-sm-6">
+      <div className="card border-secondary">
+        <div className="card-header">
           Opponent
         </div>
-        <div className="col-sm-6">
-          Goals: {game.goalsAgainst}
-          Shots: {game.shotsAgainst}
+      <div className="card-body row">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header">
+              Goals
+            </div>
+            <div className="card-body">
+              {game.goalsAgainst}
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="card">
+              <div className="card-header">
+                Shots
+              </div>
+              <div className="card-body">
+                {game.shotsAgainst}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
