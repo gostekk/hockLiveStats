@@ -31,6 +31,8 @@ Meteor.methods({
       const game = Game.insert({ createdAt: new Date(), ...newGame });
       const formation1 = Meteor.call('formation.insert', game, 1);
       const formation2 = Meteor.call('formation.insert', game, 2);
+      const formation3 = Meteor.call('formation.insert', game, 3);
+      const formation4 = Meteor.call('formation.insert', game, 4);
       return game;
     } catch (exception) {
       throw new Meteor.Error("500", exception);
