@@ -72,6 +72,10 @@ Meteor.methods({
       game_id, shotsOnValue
     });
 
+    if(Game.findOne({_id: game_id}) == undefined) {
+      throw new Meteor.Error("404", 'Game not found')
+    }
+
     try {
       return Game.update(
         { _id: game_id },
@@ -99,6 +103,10 @@ Meteor.methods({
     }).validate({
       game_id, opponentGoalValue
     });
+
+    if(Game.findOne({_id: game_id}) == undefined) {
+      throw new Meteor.Error("404", 'Game not found')
+    }
 
     try {
       return Game.update(
@@ -129,6 +137,10 @@ Meteor.methods({
       game_id, goalsValue
     });
 
+    if(Game.findOne({_id: game_id}) == undefined) {
+      throw new Meteor.Error("404", 'Game not found')
+    }
+
     try {
       return Game.update(
         { _id: game_id },
@@ -157,6 +169,10 @@ Meteor.methods({
       game_id, shotsValue
     });
 
+    if(Game.findOne({_id: game_id}) == undefined) {
+      throw new Meteor.Error("404", 'Game not found')
+    }
+
     try {
       return Game.update(
         { _id: game_id },
@@ -178,6 +194,10 @@ Meteor.methods({
     }).validate({
       game_id
     });
+
+    if(Game.findOne({_id: game_id}) == undefined) {
+      throw new Meteor.Error("404", 'Game not found')
+    }
 
     try {
       Meteor.call('formations.reset', game_id);
