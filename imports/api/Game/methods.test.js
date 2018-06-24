@@ -185,15 +185,15 @@ if (Meteor.isServer) {
         resetDatabase();
       });
 
-      // it('should pass game.reset method/fake check', function() {
-      //   expect( () => {
-      //     Meteor.server.method_handlers['game.reset'](id, 2);
-      //   }).to.throw('2 is not an allowed value');
-      // });
+      it.skip('should pass game.reset method/fake check', function() {
+        expect( () => {
+          Meteor.server.method_handlers['game.reset']();
+        }).to.throw();
+      });
 
       it('should throw validation error', function() {
         expect( () => {
-          Meteor.server.method_handlers['game.reset']('id123Test');
+          Meteor.server.method_handlers['game.reset'](123);
         }).to.throw();
       });
 

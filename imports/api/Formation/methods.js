@@ -49,7 +49,7 @@ Meteor.methods({
 
     try {
       // TODO: Remove formation players
-      return Formation.remove({ _id: formation });
+      return Formation.remove({ _id: formation_id });
     } catch (exception) {
       throw new Meteor.Error("500", exception);
     }
@@ -65,6 +65,10 @@ Meteor.methods({
     }).validate({
       game_id
     });
+
+    if(Formation.find({ game_id: game_id }).fetch().length == 0) {
+      throw new Meteor.Error("404", 'Formations not found')
+    }
 
     try {
       return Formation.find(
